@@ -1,0 +1,33 @@
+# Wizard Log
+## Date: [Enter Date]
+### Project: [NYC Taxicab Pipeline]
+
+# **Goal for the Day:**
+- Resolve Github issue - when attempting to push to github the repository gets hung up due to the amount of files trying to push to github. This was an accident due to not specifying which files to ignhore in the gitignore file before pushing to github.
+- Connect PostgreSQL database to Power BI
+-
+
+## **Blockers Encountered:**
+- SSL Error while trying to connect PostgreSQL to Power BI - "An error happened while reading data from the provider: 'The remote certificate is invalid according to the validation procedure.'"
+-
+-
+
+### **Summary of Progress Made:**
+- Updated gitignore
+- We git reset Head~3 the test_january_2009 branch to before we committed the .venv folder and the Data folder
+- Then we removed the .venv foler and Data folder from the cache
+- Eventually we went back in history to the last pushed code and updated the gitignore file so that it wouldnt track the .venv folder and Data folder
+- Pushed correct commits to GitHub
+- When connecting to Power BI changed the server to "localhost" & Changed the SSL mode to "no" in the "postgresql.conf" - this allowed me to connect my postgresql database to Power BI - we are officially in the transformation stage of this project!!!!!
+
+#### **Next Steps:**
+- Start building out nyctaxicab report
+-
+-
+
+##### **General Notes:**
+- git reset HEAD~3 this reset the commit history to the 3rd from last commit whil keeping working directory and unstaging staged changes
+- git rm -r --cached <folder> - this removes the commited cache history???
+- git reset --soft <commit id#> - A soft reset in Git is used to undo commits while keeping the changes in your working directory and staging area.
+- commit early, commit often - you never know what point in time you may beed to revert the repsoitory back to.
+
