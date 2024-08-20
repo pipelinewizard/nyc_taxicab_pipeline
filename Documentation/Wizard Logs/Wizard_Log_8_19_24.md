@@ -1,5 +1,5 @@
 # Wizard Log
-## Date: [Enter Date]
+## Date: [8_19_24]
 ### Project: [NYC Taxicab Pipeline]
 
 # **Goal for the Day:**

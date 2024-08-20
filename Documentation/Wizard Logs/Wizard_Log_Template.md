@@ -1,25 +1,27 @@
-# Wizard Log
-## Date: [Enter Date]
-### Project: [NYC Taxicab Pipeline]
+Wizard Log
+Date: [Enter Date]
+Project: [NYC Taxicab Pipeline]
 
-# **Goal for the Day:**
+Goal for the Day:
 - 
 -
 -
 
-## **Blockers Encountered:**
+Blockers Encountered:
 -
 -
 -
 
-### **Summary of Progress Made:**
+Summary of Progress Made:
+
+
+
+Next Steps:
 -
 -
 -
 
-#### **Next Steps:**
+General Notes:
+- 
 -
 -
--
-
-##### **General Notes:**
