@@ -43,3 +43,13 @@ SET "Payment_Type" = UPPER("Payment_Type");
 -- Subtract Pickup DateTime from Dropoff DateTime
 UPDATE nyctaxicab_2009_01
 SET duration = "Trip_Dropoff_DateTime" - "Trip_Pickup_DateTime";
+
+-- Created geometry type column that combines longitiatue and latitude into a single spatial point adding start_location and end_location column to nyctaxicab_2009_01
+ALTER TABLE nyctaxicab_2009_01
+ADD COLUMN start_location geography(Point, 4326),
+ADD COLUMN end_location geography(Point, 4326);
+
+-- Populate columns with combined longitude and latitude data
+UPDATE nyctaxicab_2009_01
+SET start_location = ST_SetSRID(ST_MakePoint("Start_Lon", "Start_Lat"), 4326),
+    end_location = ST_SetSRID(ST_MakePoint("End_Lon", "End_Lat"), 4326);

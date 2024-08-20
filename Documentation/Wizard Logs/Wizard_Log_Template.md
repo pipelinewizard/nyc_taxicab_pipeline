@@ -2,7 +2,7 @@ Wizard Log
 Date: [Enter Date]
 Project: [NYC Taxicab Pipeline]
 
-Goal for the Day:
+Goals for the Day:
 - 
 -
 -
