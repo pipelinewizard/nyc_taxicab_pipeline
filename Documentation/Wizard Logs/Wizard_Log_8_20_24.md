@@ -11,7 +11,7 @@ Goals for the Day:
 
 Blockers Encountered:
 - The Power BI File would not connect initially, because the PostgreSQL server was not started. Once the server was started, we were able toc connect to the database.
--
+- I have a start Latitude and Longitude and an end Latitude and Longitude for nyc taxicab trips - I am not exactly sure what the best way would be to display this data in Power BI
 -
 
 Summary of Progress Made:
@@ -24,7 +24,7 @@ I started this process today and was able to lock in the color scheme and finali
 
 
 Next Steps:
-- Create Summary Tables for Location Data
+- How should we display location data in Power BI? - Should location be a dim table?
 - Add visual placeholders
 - Add report interactivity functionality
 

@@ -14,9 +14,7 @@
 -
 
 ### **Summary of Progress Made:**
-- Re-created SQL scripts for all 3 dim tables - dim_date, dim_vendor and dim_payment_type
--
--
+Re-created SQL scripts for all 3 dim tables - dim_date, dim_vendor and dim_payment_type
 
 #### **Next Steps:**
 -

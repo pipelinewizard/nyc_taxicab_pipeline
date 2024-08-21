@@ -10,9 +10,10 @@ Goal for the Day:
 •	Push to GitHub
 Blockers Encountered:
 •	[Describe any obstacles or issues faced]
+
 Summary of Progress Made:
-•	Created the following aggregation tables: nyctaxicab_daily_summary, nyctaxicab_daily_summary_byvendor, nyctaxicab_daily_summary_bypayment_type, nyctaxicab_summarybypayment_type, nyctaxicab_summary_byvendor. Also created the proper foreign key constraints for all the tables.
-•	I organized the SQL File structure and pushed to github
+Created and set up aggregation tables for NYCTaxiCab, including daily summaries and vendor/payment type summaries, along with the appropriate foreign key constraints. Additionally, organized the SQL file structure and pushed it to GitHub.
+
 Next Steps:
 •	Next steps will be to continue making the appropriate aggregation tables that I think I will be necessary for analysis.
 •	Push the data to Github

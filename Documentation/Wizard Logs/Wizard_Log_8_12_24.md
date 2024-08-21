@@ -15,9 +15,7 @@ Blockers Encountered:
 - 
 
 Summary of Progress Made:
-- Created the nyctaxicab_weekly_summary table with a date_id column based on the week_start_date
-- Created the nyctaxicab_weekly_summaryby_vendor table with a date_id column based on the week_start_date
-- Created the nyctaxicab_weekly_summarybypayment_type table with a date_id column based on the week_start_date
+Created the nyctaxicab_weekly_summary, nyctaxicab_weekly_summaryby_vendor, and nyctaxicab_weekly_summarybypayment_type tables, each with a date_id column based on the week_start_date.
 
 Next Steps:
 - Re-create Dim Table SQL statements to store for future use

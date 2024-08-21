@@ -13,9 +13,8 @@ Blockers Encountered:
 -
 
 Summary of Progress Made:
-- Created Monthly Summary Tables
-- 
--
+Created Monthly Summary Tables
+
 
 Next Steps:
 - Need to re-create SQL queries for DIM tables - I'm being lazy (which isnt actually true, but I need to knock it out)

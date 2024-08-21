@@ -8,11 +8,9 @@ Goal for the Day:
 •	Object Storage for Raw Data
 Blockers Encountered:
 •	Attempted to create weekly aggregation tables and was unsuccessful. I am attempting to JOIN the “week” column into the nyctaxicab_weekly_summary table from the dim_date table using the date_id columns from both tables. The “week” column shows only null values, which doesn’t make any sense, since there are matching date_id columns in both of the columns.
+
 Summary of Progress Made:
-•	Attempted to create a weekly aggregation table using the JOIN function and was unsuccessful. Will be attempting to complete this task tomorrow morning.
-•	Next Steps:
-•	Continue investigating the JOIN SQL query for the nyctaxicab_weekly_summary table
-•	Create weekly summaries by vendor and by payment_type
+Attempted to create a weekly aggregation table using the JOIN function but was unsuccessful. Will continue working on this task tomorrow morning. Next steps include investigating the JOIN SQL query for the nyctaxicab_weekly_summary table and creating weekly summaries by vendor and payment type.
 ________________________________________
 General Notes:
 •	Parameters vs. Arguments
