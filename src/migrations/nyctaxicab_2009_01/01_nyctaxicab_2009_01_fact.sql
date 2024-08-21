@@ -10,7 +10,7 @@ ADD COLUMN payment_type_id INT;
 ALTER TABLE nyctaxicab_2009_01 
 ADD COLUMN date_id INT;
 
--- Add duration coumn
+-- Add duration column
 ALTER TABLE nyctaxicab_2009_01
 ADD COLUMN duration INTERVAL;
 
@@ -53,3 +53,42 @@ ADD COLUMN end_location geography(Point, 4326);
 UPDATE nyctaxicab_2009_01
 SET start_location = ST_SetSRID(ST_MakePoint("Start_Lon", "Start_Lat"), 4326),
     end_location = ST_SetSRID(ST_MakePoint("End_Lon", "End_Lat"), 4326);
+
+-- Add ride_count column
+ALTER TABLE nyctaxicab_2009_01
+ADD COLUMN ride_count INT;
+
+-- Populate ride_count column
+UPDATE TABLE nyctaxicab_2009_01
+SET ride_count =1;
+
+-- Associate each trip with a borough
+ALTER TABLE nyc_taxicab ADD COLUMN start_borough_id INTEGER;
+ALTER TABLE nyc_taxicab ADD COLUMN end_borough_id INTEGER;
+
+UPDATE nyc_taxicab AS t
+SET start_borough_id = b.gid
+FROM nyc_boroughs AS b
+WHERE ST_Contains(b.geom, t.start_location);
+
+UPDATE nyc_taxicab AS t
+SET end_borough_id = b.gid
+FROM nyc_boroughs AS b
+WHERE ST_Contains(b.geom, t.end_location);
+
+
+-- Associate each trip with a neighborhood
+ALTER TABLE nyc_taxicab ADD COLUMN start_borough_id INTEGER;
+ALTER TABLE nyc_taxicab ADD COLUMN end_borough_id INTEGER;
+
+UPDATE nyc_taxicab AS t
+SET start_borough_id = b.gid
+FROM nyc_boroughs AS b
+WHERE ST_Contains(b.geom, t.start_location);
+
+UPDATE nyc_taxicab AS t
+SET end_borough_id = b.gid
+FROM nyc_boroughs AS b
+WHERE ST_Contains(b.geom, t.end_location);
+
+

@@ -24,9 +24,9 @@ I started this process today and was able to lock in the color scheme and finali
 
 
 Next Steps:
+- Create Summary Tables for Location Data
 - Add visual placeholders
 - Add report interactivity functionality
--
 
 General Notes:
 - How do you automate the starting the PostgreSQL database - in a real-world scenario people will use reports at different times and this would be a blocker if the database had to manually started.
