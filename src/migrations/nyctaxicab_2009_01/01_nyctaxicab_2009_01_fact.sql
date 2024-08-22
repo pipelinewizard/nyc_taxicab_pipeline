@@ -63,32 +63,34 @@ UPDATE TABLE nyctaxicab_2009_01
 SET ride_count =1;
 
 -- Associate each trip with a borough
-ALTER TABLE nyc_taxicab ADD COLUMN start_borough_id INTEGER;
-ALTER TABLE nyc_taxicab ADD COLUMN end_borough_id INTEGER;
+ALTER TABLE nyctaxicab_2009_01
+ADD COLUMN start_borough_id INTEGER,
+ADD COLUMN end_borough_id INTEGER;
 
-UPDATE nyc_taxicab AS t
+UPDATE nyctaxicab_2009_01 AS t
 SET start_borough_id = b.gid
 FROM nyc_boroughs AS b
-WHERE ST_Contains(b.geom, t.start_location);
+WHERE ST_Contains(b.geom, t.start_location::geometry);
 
-UPDATE nyc_taxicab AS t
+UPDATE nyctaxicab_2009_01 AS t
 SET end_borough_id = b.gid
 FROM nyc_boroughs AS b
-WHERE ST_Contains(b.geom, t.end_location);
+WHERE ST_Contains(b.geom, t.end_location::geometry);
 
 
 -- Associate each trip with a neighborhood
-ALTER TABLE nyc_taxicab ADD COLUMN start_borough_id INTEGER;
-ALTER TABLE nyc_taxicab ADD COLUMN end_borough_id INTEGER;
+ALTER TABLE nyctaxicab_2009_01
+ADD COLUMN start_neighborhood_id INTEGER,
+ADD COLUMN end_neighborhood_id INTEGER;
 
-UPDATE nyc_taxicab AS t
-SET start_borough_id = b.gid
-FROM nyc_boroughs AS b
-WHERE ST_Contains(b.geom, t.start_location);
+UPDATE nyctaxicab_2009_01 AS t
+SET start_neighborhood_id = nh.gid
+FROM nyc_neighborhoods AS nh
+WHERE ST_Contains(nh.geom, t.start_location::geometry);
 
-UPDATE nyc_taxicab AS t
-SET end_borough_id = b.gid
-FROM nyc_boroughs AS b
-WHERE ST_Contains(b.geom, t.end_location);
+UPDATE nyctaxicab_2009_01 AS t
+SET end_neighborhood_id = nh.gid
+FROM nyc_neighborhoods AS nh
+WHERE ST_Contains(nh.geom, t.end_location::geometry);
 
 

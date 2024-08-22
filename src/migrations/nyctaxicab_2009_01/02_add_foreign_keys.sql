@@ -13,3 +13,23 @@ ALTER TABLE nyctaxicab_2009_01
 ADD CONSTRAINT fk_vendor
 FOREIGN KEY (vendor_id)
 REFERENCES dim_vendor(vendor_id);
+
+ALTER TABLE nyctaxicab_2009_01
+ADD CONSTRAINT fk_start_borough
+FOREIGN KEY (start_borough_id)
+REFERENCES nyc_boroughs(gid);
+
+ALTER TABLE nyctaxicab_2009_01
+ADD CONSTRAINT fk_end_borough
+FOREIGN KEY (end_borough_id)
+REFERENCES nyc_boroughs(gid);
+
+ALTER TABLE nyctaxicab_2009_01
+ADD CONSTRAINT fk_start_neighborhood
+FOREIGN KEY (start_neighborhood_id)
+REFERENCES nyc_neighborhoods(gid);
+
+ALTER TABLE nyctaxicab_2009_01
+ADD CONSTRAINT fk_end_neighborhood
+FOREIGN KEY (end_neighborhood_id)
+REFERENCES nyc_neighborhoods(gid);

@@ -1,5 +1,4 @@
-Wizard Log
-
+LDEP Log
 Date: [8-12-24]
 Project: [NYC Taxicab Pipeline]
 ________________________________________
