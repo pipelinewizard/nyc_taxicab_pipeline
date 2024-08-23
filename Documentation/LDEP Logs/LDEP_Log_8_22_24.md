@@ -48,7 +48,7 @@ The end_location field was originally of the geography datatype, which was causi
 
 Next Steps:
 - Decide what to do about start and end locations outside of NYC Borough or Neighborhood boundary
-- Create Summary tablebles grouped by Borough and Neighborhood
+- Create Summary tables grouped by Borough and Neighborhood
 -
 
 General Notes:
