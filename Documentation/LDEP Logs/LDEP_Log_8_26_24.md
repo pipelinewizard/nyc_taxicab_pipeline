@@ -1,0 +1,29 @@
+LDEP Log
+Date: [8_26_24]
+Project: [NYC Taxicab Pipeline]
+
+Goals for the Day:
+- Add NY State (Cities) geojson table to postgres database
+- Add city id information to nyctaxicab_2009_01 table
+- Add New Jersey and Connecticut (City) geojson Information
+- Add city id information to nyctaxicab_2009_01 table
+
+Blockers Encountered:
+- cts_municipalities - the name column list city's/towns/villages within the same column with no discerning identifier
+- 
+-
+
+Summary of Progress Made:
+- Ingested State, County, City(Muncipality in some cases) boundary .geojson files into PostgreSQL
+- 
+
+
+Next Steps:
+- Add State, County, and City Id's to tables for start and end locations
+- Decide how to handle municipality tables ( has multiple levels city, town, village etc.)
+-
+
+General Notes:
+- 
+-
+-
