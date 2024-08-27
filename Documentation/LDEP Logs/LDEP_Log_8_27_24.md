@@ -1,5 +1,5 @@
 LDEP Log
-Date: [Enter Date]
+Date: [8_27_24]
 Project: [NYC Taxicab Pipeline]
 
 Goals for the Day:
@@ -8,12 +8,12 @@ Goals for the Day:
 - Add a Municipality Type Column??
 
 Blockers Encountered:
-- Not able to find any datasets with ct cities and towns split out etc.
+- Not able to find any Connecticut datasets with a mun_type column
 -
 -
 
 Summary of Progress Made:
-- Added Mun_Type column to dim_ct_municiapities table
+- Added Mun_Type column to dim_ct_municipalities table
 - Create CT_Wikipedia_Mun_Type table
 - Added mun_type data to dim_ct_municipalities table
 
@@ -21,7 +21,7 @@ Summary of Progress Made:
 
 
 Next Steps:
--
+- Create seperate tables for municipality types - for ct and nj
 -
 -
 
