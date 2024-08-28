@@ -1,0 +1,2 @@
+-- add reference_ct_counties table to postgres
+ogr2ogr -f "PostgreSQL" PG:"dbname=nyc_taxicab_db user=postgres password=postgrespassword" "Data/Connecticut_County_Index_1575646623042208529.geojson" -nln reference_ct_counties -lco GEOMETRY_NAME=geom -lco FID=gid -lco PRECISION=no

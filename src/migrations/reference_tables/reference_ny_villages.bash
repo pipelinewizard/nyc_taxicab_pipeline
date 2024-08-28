@@ -1,0 +1,2 @@
+-- add reference_ny_villages table to postgres
+ogr2ogr -f "PostgreSQL" PG:"dbname=nyc_taxicab_db user=postgres password=postgrespassword" "Data/NYS_Civil_Boundaries_4335251254829461238 (1).geojson" -nln reference_ny_villages -lco GEOMETRY_NAME=geom -lco FID=gid -lco PRECISION=no

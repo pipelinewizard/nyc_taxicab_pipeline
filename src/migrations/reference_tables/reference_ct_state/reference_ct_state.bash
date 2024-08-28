@@ -1,0 +1,2 @@
+-- add reference_ct_state table to postgres
+ogr2ogr -f "PostgreSQL" PG:"dbname=nyc_taxicab_db user=postgres password=postgrespassword" "Data/Connecticut_State_2892193487961723047.geojson" -nln reference_ct_state -lco GEOMETRY_NAME=geom -lco FID=gid -lco PRECISION=no
