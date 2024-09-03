@@ -1,10 +1,10 @@
---Create dim_state table in postgres_db
+--Create dim_counties table in postgres_db
 CREATE TABLE dim_counties(
 county_id SERIAL PRIMARY KEY,
 county TEXT,
 geom GEOMETRY);
 
---Insert state values into to dim_states
+--Insert county values into to dim_counties
 INSERT INTO dim_counties(
     county, geom)
 SELECT county, geom

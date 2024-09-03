@@ -1,0 +1,36 @@
+LDEP Log
+Date: [9_3_24]
+Project: [NYC Taxicab Pipeline]
+
+Goals for the Day:
+- Need to document scope of reporting
+- create reference_ct_city and reference_ct_town tables
+- Consolidate Common tables
+- Breakout reference_nj_municipality table
+    - reference_nj_township
+    - reference_nj_city
+    - reference_nj_borough
+    - reference_nj_town
+    - reference_nj_village
+
+Blockers Encountered:
+- All 3 states location data does not go down to the same level of granularity. e.g., Villages are present for NY state and NJ State but not for CT State.
+- Had to create dim tables with suffix of state it relates to e.g., dim_villages_nj_ny
+- If there is no prefix with state, then the dim table applies to all 3 states.
+
+Summary of Progress Made:
+- Created the reference_ct_city table
+- Created reference_ct_town table
+- Partitioned the reference_nj_municipality table into seperate dim tables
+- Consolidated reference tables into specific dim tables e.g., dim_counties, dim_cities, dim_boroughs, etc
+
+
+Next Steps:
+- Associate each trip with a State, County, City, Borough, and Town
+- Associate trips that apply to a neighborhood, township and village
+- Investigate Materialized Views
+
+General Notes:
+- Need to investigate materialized views - this could be a better alternative than creating summary tables by the different dimensions.
+-
+-
