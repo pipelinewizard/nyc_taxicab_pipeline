@@ -62,20 +62,20 @@ ADD COLUMN ride_count INT;
 UPDATE TABLE nyctaxicab_2009_01
 SET ride_count =1;
 
--- Associate each trip with a borough
+-- Associate each trip with a state
 ALTER TABLE nyctaxicab_2009_01
-ADD COLUMN nyc_start_borough_id INTEGER,
-ADD COLUMN nyc_end_borough_id INTEGER;
+ADD COLUMN start_state_id INTEGER,
+ADD COLUMN end_state_id INTEGER;
 
 UPDATE nyctaxicab_2009_01 AS t
-SET nyc_start_borough_id = b.gid
-FROM dim_nyc_boroughs AS b
-WHERE ST_Contains(b.geom, t.start_location::geometry);
+SET start_state_id = ds.state_id
+FROM dim_states AS ds
+WHERE ST_Contains(ds.geom, t.start_location::geometry);
 
 UPDATE nyctaxicab_2009_01 AS t
-SET nyc_end_borough_id = b.gid
-FROM dim_nyc_boroughs AS b
-WHERE ST_Contains(b.geom, t.end_location::geometry);
+SET end_state_id = ds.state_id
+FROM dim_states AS ds
+WHERE ST_Contains(ds.geom, t.end_location::geometry);
 
 
 -- Associate each trip with a neighborhood
@@ -85,25 +85,115 @@ ADD COLUMN nyc_end_neighborhood_id INTEGER;
 
 UPDATE nyctaxicab_2009_01 AS t
 SET nyc_start_neighborhood_id = nh.gid
-FROM dim_nyc_neighborhoods AS nh
+FROM dim_neighborhoods_nyc AS nh
 WHERE ST_Contains(nh.geom, t.start_location::geometry);
 
 UPDATE nyctaxicab_2009_01 AS t
 SET nyc_end_neighborhood_id = nh.gid
-FROM dim_nyc_neighborhoods AS nh
+FROM dim_neighborhoods_nyc AS nh
 WHERE ST_Contains(nh.geom, t.end_location::geometry);
 
--- Associate each trip with a US State
+-- Associate each trip with a county
 ALTER TABLE nyctaxicab_2009_01
-ADD COLUMN us_start_state_id INTEGER,
-ADD COLUMN us_end_state_id INTEGER;
+ADD COLUMN start_county_id INTEGER,
+ADD COLUMN end_county_id INTEGER;
 
 UPDATE nyctaxicab_2009_01 AS t
-SET us_start_state_id = ut.gid
-FROM dim_us_states AS ut
-WHERE ST_Contains(ut.geom, t.start_location::geometry);
+SET start_county_id = dc.county_id
+FROM dim_counties AS dc
+WHERE ST_Contains(dc.geom, t.start_location::geometry);
 
 UPDATE nyctaxicab_2009_01 AS t
-SET us_end_state_id = ut.gid
-FROM dim_us_states AS ut
-WHERE ST_Contains(ut.geom, t.end_location::geometry);
+SET end_county_id = dc.county_id
+FROM dim_counties AS dc
+WHERE ST_Contains(dc.geom, t.end_location::geometry);
+
+-- Associate each trip with a city
+ALTER TABLE nyctaxicab_2009_01
+ADD COLUMN start_city_id INTEGER,
+ADD COLUMN end_city_id INTEGER;
+
+UPDATE nyctaxicab_2009_01 AS t
+SET start_city_id = dct.city_id
+FROM dim_cities AS dct
+WHERE ST_Contains(dct.geom, t.start_location::geometry);
+
+UPDATE nyctaxicab_2009_01 AS t
+SET end_city_id = dct.city_id
+FROM dim_cities AS dct
+WHERE ST_Contains(dct.geom, t.end_location::geometry);
+
+-- Associate each trip with a borough
+ALTER TABLE nyctaxicab_2009_01
+ADD COLUMN start_borough_id INTEGER,
+ADD COLUMN end_borough_id INTEGER;
+
+UPDATE nyctaxicab_2009_01 AS t
+SET start_borough_id = db.borough_id
+FROM dim_boroughs AS db
+WHERE ST_Contains(db.geom, t.start_location::geometry);
+
+UPDATE nyctaxicab_2009_01 AS t
+SET end_borough_id = db.borough_id
+FROM dim_boroughs AS db
+WHERE ST_Contains(db.geom, t.end_location::geometry);
+
+-- Associate each trip with a town
+ALTER TABLE nyctaxicab_2009_01
+ADD COLUMN start_town_id INTEGER,
+ADD COLUMN end_town_id INTEGER;
+
+UPDATE nyctaxicab_2009_01 AS t
+SET start_town_id = dt.town_id
+FROM dim_towns AS dt
+WHERE ST_Contains(dt.geom, t.start_location::geometry);
+
+UPDATE nyctaxicab_2009_01 AS t
+SET end_town_id = dt.town_id
+FROM dim_towns AS dt
+WHERE ST_Contains(dt.geom, t.end_location::geometry);
+
+-- Associate each trip with a township
+ALTER TABLE nyctaxicab_2009_01
+ADD COLUMN start_township_id INTEGER,
+ADD COLUMN end_township_id INTEGER;
+
+UPDATE nyctaxicab_2009_01 AS t
+SET start_township_id = dts.township_id
+FROM dim_townships_nj AS dts
+WHERE ST_Contains(dts.geom, t.start_location::geometry);
+
+UPDATE nyctaxicab_2009_01 AS t
+SET end_township_id = dts.township_id
+FROM dim_townships_nj AS dts
+WHERE ST_Contains(dts.geom, t.end_location::geometry);
+
+-- Associate each trip with a township
+ALTER TABLE nyctaxicab_2009_01
+ADD COLUMN start_township_id INTEGER,
+ADD COLUMN end_township_id INTEGER;
+
+UPDATE nyctaxicab_2009_01 AS t
+SET start_township_id = dts.township_id
+FROM dim_townships_nj AS dts
+WHERE ST_Contains(dts.geom, t.start_location::geometry);
+
+UPDATE nyctaxicab_2009_01 AS t
+SET end_township_id = dts.township_id
+FROM dim_townships_nj AS dts
+WHERE ST_Contains(dts.geom, t.end_location::geometry);
+
+-- Associate each trip with a village
+ALTER TABLE nyctaxicab_2009_01
+ADD COLUMN start_village_id INTEGER,
+ADD COLUMN end_village_id INTEGER;
+
+UPDATE nyctaxicab_2009_01 AS t
+SET start_village_id = dv.village_id
+FROM dim_villages_nj_ny AS dv
+WHERE ST_Contains(dv.geom, t.start_location::geometry);
+
+UPDATE nyctaxicab_2009_01 AS t
+SET end_village_id = dv.village_id
+FROM dim_villages_nj_ny AS dv
+WHERE ST_Contains(dv.geom, t.end_location::geometry);

@@ -33,4 +33,3 @@ Next Steps:
 General Notes:
 - Need to investigate materialized views - this could be a better alternative than creating summary tables by the different dimensions.
 -
--
