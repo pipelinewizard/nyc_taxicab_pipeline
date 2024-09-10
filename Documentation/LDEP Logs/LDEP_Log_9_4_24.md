@@ -16,10 +16,10 @@ Blockers Encountered:
 - 154 NULL end_city_id
 - 184 NULL start_borough_id
 - 186 NULL end_borough_id
-- 9989 NULL start_town_id
-- 9985 NULL end_town_id
 - 189 NULL start_neighborhood_id
 - 191 NULL end_neighborhood_id
+- 9989 NULL start_town_id
+- 9985 NULL end_town_id
 - 9995 NULL start_township_id
 - 9996 NULL end_township_id
 - 9999 NULL start_village_id

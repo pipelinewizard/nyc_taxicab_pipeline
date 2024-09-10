@@ -1,4 +1,4 @@
---Create dim_villages table in postgres_db
+--Create dim_villages_nj_ny table in postgres_db
 CREATE TABLE dim_villages(
 village_id SERIAL PRIMARY KEY,
 village TEXT,
@@ -12,3 +12,6 @@ FROM  reference_nj_villages
 UNION
 SELECT name, geom
 from reference_ny_villages;
+
+-- Add Uncategorized Dimension
+ALTER TABLE dim_villages_nj_ny

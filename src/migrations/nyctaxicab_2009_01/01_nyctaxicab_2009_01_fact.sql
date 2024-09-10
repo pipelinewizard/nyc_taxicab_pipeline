@@ -197,3 +197,74 @@ UPDATE nyctaxicab_2009_01 AS t
 SET end_village_id = dv.village_id
 FROM dim_villages_nj_ny AS dv
 WHERE ST_Contains(dv.geom, t.end_location::geometry);
+
+--Remove 0 values from Start lat/lon and End lat/lon
+UPDATE nyctaxicab_2009_01
+SET Start_Lon = null
+WHERE Start_Lon = 0;
+
+-- Delete null values from Location Columns
+DELETE
+FROM nyctaxicab_2009_01
+WHERE "Start_Lon" IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE "Start_Lat" IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE "End_Lon" IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE "End_Lat" IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE start_state_id IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE end_state_id IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE start_county_id IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE end_county_id IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE start_city_id IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE end_city_id IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE start_borough_id IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE end_borough_id IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE nyc_start_neighborhood_id IS null;
+
+DELETE
+FROM nyctaxicab_2009_01
+WHERE nyc_end_neighborhood_id IS null;
+
+--Dropped Location columns that were 99% null
+ALTER TABLE nyctaxicab_2009_01
+DROP COLUMN start_town_id,
+DROP COLUMN end_town_id,
+DROP COLUMN start_township_id,
+DROP COLUMN end_township_id,
+DROP COLUMN start_village_id,
+DROP COLUMN end_village_id;
